@@ -1,0 +1,2 @@
+rootProject.name='SofttechBrowser'
+include ':app'
