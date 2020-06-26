@@ -51,4 +51,8 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:2.28.1"
 
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+
+    implementation "com.android.support:recyclerview-v7:29.0.0"
+
+    kapt "com.android.databinding:compiler:3.1.4"
 }
