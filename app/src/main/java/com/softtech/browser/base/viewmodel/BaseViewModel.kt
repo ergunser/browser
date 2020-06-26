@@ -3,6 +3,8 @@ package com.softtech.browser.base.viewmodel
 import androidx.lifecycle.ViewModel
 import com.softtech.browser.base.network.NetworkModule
 import com.softtech.browser.main.viewmodel.MainViewModel
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 abstract class BaseViewModel : ViewModel() {
 
@@ -11,14 +13,26 @@ abstract class BaseViewModel : ViewModel() {
         .networkModule(NetworkModule)
         .build()
 
+    private val disposeBag = CompositeDisposable()
+    private lateinit var disposeOnViewInvisibleBag: CompositeDisposable
+
     init {
         inject()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposeBag.clear()
     }
 
     private fun inject() {
         when (this) {
             is MainViewModel -> injector.inject(this)
         }
+    }
+
+    protected fun Disposable.autoDispose() {
+        disposeBag.add(this)
     }
 
 }
