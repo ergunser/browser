@@ -1,6 +1,6 @@
 package com.softtech.browser.main.model
 
-class Item(comment: String)
+class Item(var comment: String)
 
 // {
 // // var browser: Browser? = null
