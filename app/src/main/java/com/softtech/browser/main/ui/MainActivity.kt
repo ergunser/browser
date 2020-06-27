@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java) // FIXME change this
 
+        binding.lifecycleOwner = this
         binding.viewModel = viewModel
     }
 }

@@ -15,8 +15,5 @@ fun viewModelList(
         recyclerView.adapter = ViewModelRecyclerViewAdapter()
     }
 
-    (recyclerView.adapter as ViewModelRecyclerViewAdapter).let {
-        it.viewModelLayoutHolderList = list.orEmpty()
-        it.notifyDataSetChanged()
-    }
+    (recyclerView.adapter as? ViewModelRecyclerViewAdapter)?.updateData(list)
 }
