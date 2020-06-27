@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface Api {
 
-    @GET("e5714414-3e4d-440a-993a-c76d3fd6d392")
+    @GET("06df161a-9b16-4da1-880e-423000629acf")
     fun fetchBrowsers(): Observable<BrowserResponse>
 
 }

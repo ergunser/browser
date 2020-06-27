@@ -28,14 +28,13 @@ class MainViewModel : BaseViewModel() {
 
                 val list = mutableListOf<BrowserItemViewHolder>()
 
-                it.items
-                    .map { BrowserItemViewModel(it) }
-                    .mapTo(list) { BrowserItemViewHolder(it) }
+                it.items?.map { BrowserItemViewModel(it) }
+                    ?.mapTo(list) { BrowserItemViewHolder(it) }
 
 
                 browserList.value = list
-
             }, {
+
             }).autoDispose()
 
     }
