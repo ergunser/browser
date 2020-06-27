@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="comment_label">Comment:</string>
+    <string name="platform_label">Platform:</string>
+    <string name="geolocation_label">Location:</string>
+    <string name="ratings_label">Ratings:</string>
+    <string name="Labels_label">Labels:</string>
+</resources>

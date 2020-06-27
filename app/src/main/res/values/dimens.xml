@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_xxx_small">2dp</dimen>
+    <dimen name="space_xx_small">4dp</dimen>
+    <dimen name="space_x_small">8dp</dimen>
+    <dimen name="space_small">12dp</dimen>
+    <dimen name="space_medium">16dp</dimen>
+    <dimen name="space_large">20dp</dimen>
+    <dimen name="space_x_large">24dp</dimen>
+    <dimen name="space_xx_large">32dp</dimen>
+    <dimen name="space_xxx_large">48dp</dimen>
+
+
+    <dimen name="default_card_view_elevation">4dp</dimen>
+    <dimen name="default_card_view_radius">4dp</dimen>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SofttechTextAppearance" parent="TextAppearance.AppCompat" />
+
+    <style name="SofttechTextAppearance.Label">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/c_88898a</item>
+    </style>
+
+    <style name="SofttechTextAppearance.Value">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
