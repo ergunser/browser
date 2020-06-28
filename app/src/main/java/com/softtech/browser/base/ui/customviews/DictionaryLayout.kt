@@ -2,7 +2,6 @@ package com.softtech.browser.base.ui.customviews
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.Space
@@ -21,6 +20,8 @@ class DictionaryLayout @JvmOverloads constructor(
 
     fun setDictionaryModel(dictionaryModel: DictionaryModel?) {
 
+        removeAllViews()
+
         if (dictionaryModel?.keyValueList?.isEmpty().orTrue()) {
             return
         }
@@ -37,36 +38,17 @@ class DictionaryLayout @JvmOverloads constructor(
 
         keyView.text = keyValue.key
 
-
-       /* val keyView = TextView(ContextThemeWrapper(context, R.style.SofttechTextAppearance_Label),null,0).apply {
-            text = keyValue.key
-            layoutParams = LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT
-            )
-        }*/
-
         val spaceView = Space(context).apply {
             layoutParams = LayoutParams(
                 0,
                 LayoutParams.WRAP_CONTENT,
                 1.0f
             )
-
         }
 
         val valueView = LayoutInflater.from(context).inflate(R.layout.item_value, null) as TextView
 
         valueView.text = keyValue.value
-
-
-       /* val valueView = TextView(ContextThemeWrapper(context, R.style.SofttechTextAppearance_Value),null,0).apply {
-            text = keyValue.value
-            layoutParams = LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT
-            )
-        }*/
 
         val itemView = LinearLayout(context).apply { orientation = HORIZONTAL }
 

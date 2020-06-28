@@ -4,5 +4,6 @@
     <string name="platform_label">Platform:</string>
     <string name="geolocation_label">Location:</string>
     <string name="ratings_label">Ratings:</string>
-    <string name="Labels_label">Labels:</string>
+    <string name="labels_label">Labels:</string>
+    <string name="browser_label">Browser:</string>
 </resources>
