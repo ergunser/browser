@@ -1,5 +1,6 @@
 package com.softtech.browser.base.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.softtech.browser.base.network.NetworkModule
 import com.softtech.browser.main.viewmodel.MainViewModel
@@ -14,7 +15,7 @@ abstract class BaseViewModel : ViewModel() {
         .build()
 
     private val disposeBag = CompositeDisposable()
-    private lateinit var disposeOnViewInvisibleBag: CompositeDisposable
+    val errorMessage = MutableLiveData<String>()
 
     init {
         inject()
