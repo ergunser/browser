@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.softtech.browser.R
 import com.softtech.browser.base.ui.model.DictionaryModel
 import com.softtech.browser.base.ui.model.KeyValueModel
+import com.softtech.browser.base.util.ResourceUtil
 import com.softtech.browser.base.viewmodel.BaseViewModel
 import com.softtech.browser.main.model.BrowserResponse
 import com.softtech.browser.main.model.Item
@@ -35,14 +36,21 @@ class MainViewModel : BaseViewModel() {
                 handleBrowserResponse(it)
 
             }, {
-                //FIXME handle error
-                progressBarVisible.value = false
+
+                handleError()
 
             }).autoDispose()
 
     }
 
+    private fun handleError() {
+        progressBarVisible.value = false
+        errorMessage.value = ResourceUtil.getString(R.string.general_error)
+    }
+
     private fun handleBrowserResponse(browserResponse: BrowserResponse?) {
+
+        errorMessage.value = null
 
         progressBarVisible.value = false
 

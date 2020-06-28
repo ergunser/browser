@@ -1,16 +1,15 @@
 package com.softtech.browser.main.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.softtech.browser.R
+import com.softtech.browser.base.ui.BaseActivity
 import com.softtech.browser.databinding.ActivityMainBinding
 import com.softtech.browser.main.viewmodel.MainViewModel
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var viewModel: MainViewModel
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -23,6 +22,11 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java) // FIXME change this
 
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        binding.viewModel = viewModel as MainViewModel
+    }
+
+    override fun showError(errorMessage: String?) {
+        super.showError(errorMessage)
+        Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_SHORT).show()
     }
 }
