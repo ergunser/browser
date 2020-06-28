@@ -1,3 +1,4 @@
 <resources>
-        <string name="app_name">SofttechBrowser</string>
+    <string name="app_name">SofttechBrowser</string>
+    <string name="general_error">Bir Hata oluştu</string>
 </resources>
