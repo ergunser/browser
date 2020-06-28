@@ -16,6 +16,7 @@ import javax.inject.Inject
 class MainViewModel : BaseViewModel() {
 
     val browserList = MutableLiveData<MutableList<BrowserItemViewHolder>>()
+    val progressBarVisible = MutableLiveData<Boolean>().apply { value = true }
 
     @Inject
     lateinit var api: Api
@@ -34,12 +35,17 @@ class MainViewModel : BaseViewModel() {
                 handleBrowserResponse(it)
 
             }, {
+                //FIXME handle error
+                progressBarVisible.value = false
 
             }).autoDispose()
 
     }
 
     private fun handleBrowserResponse(browserResponse: BrowserResponse?) {
+
+        progressBarVisible.value = false
+
         val list = mutableListOf<BrowserItemViewHolder>()
 
         browserResponse?.items?.map {
@@ -57,15 +63,24 @@ class MainViewModel : BaseViewModel() {
 
     private fun createDictionaryModelFromBrowserResponse(responseBrowserItem: Item): DictionaryModel {
 
-        val browserItem = KeyValueModel(R.string.browser_label, responseBrowserItem.browser?.appCodeName.orEmpty())
+        val browserItem = KeyValueModel(
+            R.string.browser_label,
+            responseBrowserItem.browser?.appCodeName.orEmpty()
+        )
 
-        val platformItem = KeyValueModel(R.string.platform_label, responseBrowserItem.computedBrowser?.platform.orEmpty())
+        val platformItem = KeyValueModel(
+            R.string.platform_label,
+            responseBrowserItem.computedBrowser?.platform.orEmpty()
+        )
 
-        val locationItem = KeyValueModel(R.string.geolocation_label, responseBrowserItem.geo?.country.orEmpty())
+        val locationItem =
+            KeyValueModel(R.string.geolocation_label, responseBrowserItem.geo?.country.orEmpty())
 
-        val ratingItem = KeyValueModel(R.string.ratings_label, responseBrowserItem.rating.toString())
+        val ratingItem =
+            KeyValueModel(R.string.ratings_label, responseBrowserItem.rating.toString())
 
-        val labelItem = KeyValueModel(R.string.labels_label, responseBrowserItem.labels?.getOrNull(0).orEmpty())
+        val labelItem =
+            KeyValueModel(R.string.labels_label, responseBrowserItem.labels?.getOrNull(0).orEmpty())
 
         val keyValueList = ArrayList<KeyValueModel>().apply {
             add(browserItem)
@@ -76,7 +91,6 @@ class MainViewModel : BaseViewModel() {
         }
 
         return DictionaryModel(keyValueList)
-
 
 
     }
