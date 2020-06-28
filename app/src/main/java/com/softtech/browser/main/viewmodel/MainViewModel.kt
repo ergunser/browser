@@ -69,6 +69,7 @@ class MainViewModel : BaseViewModel() {
         browserList.value = list
     }
 
+    //FIXME move this method to use-case classes between vm and repo
     private fun createDictionaryModelFromBrowserResponse(responseBrowserItem: Item): DictionaryModel {
 
         val browserItem = KeyValueModel(
